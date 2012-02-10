@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>595</width>
-    <height>518</height>
+    <width>850</width>
+    <height>285</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>About 3D Slicer</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
     <number>0</number>
    </property>
@@ -23,32 +23,22 @@
    <item>
     <widget class="QLabel" name="SlicerLabel">
      <property name="pixmap">
-      <pixmap resource="../SlicerQT.qrc">:/Images/SlicerSplashScreen.png</pixmap>
+      <pixmap resource="../SlicerQT.qrc">:/Images/SlicerLogo.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeft</set>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QTextEdit" name="CreditsTextEdit">
+    <widget class="QTextBrowser" name="CreditsTextBrowser">
      <property name="readOnly">
       <bool>true</bool>
      </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
-     </property>
-     <property name="centerButtons">
+     <property name ="openExternalLinks">
       <bool>true</bool>
      </property>
     </widget>

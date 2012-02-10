@@ -181,6 +181,9 @@ public:
   /// Return the copyrights of Slicer
   virtual QString copyrights()const;
 
+  /// Return the thanks text of Slicer
+  virtual QString thanks()const;
+
   /// Return the source repository URL associated to this build
   /// \sa discoverRepository
   QString repositoryUrl()const;
