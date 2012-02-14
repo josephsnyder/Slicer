@@ -108,7 +108,7 @@ class VTK_MRML_EXPORT vtkMRMLChartNode : public vtkMRMLNode
   /// 
   /// Chart level properties
   ///
-  ///   "type" - Line, Bar, Scatter, Histogram, Pie
+  ///   "type" - Line, Bar, Scatter
   ///   "title" - title displayed on the chart
   ///   "showTitle" - show title "on" or "off"
   ///   "xAxisLabel" - label displayed on the x-axis
@@ -127,7 +127,6 @@ class VTK_MRML_EXPORT vtkMRMLChartNode : public vtkMRMLNode
   ///   "showLines" - show lines "on" or "off"
   ///   "showMarkers" - show markers "on" or "off"
   ///   "color" - color to use for the array lines and points (#RRGGBB)
-  ///   "bins" - number of bins to use when building histograms
   ///   "lookupTable" - MRMLID of a ColorNode to use to color individual 
   ///         bars in bar chart (useful with categorical data)
   /// 
@@ -146,6 +145,14 @@ class VTK_MRML_EXPORT vtkMRMLChartNode : public vtkMRMLNode
   /// Remove all the properties for all the arrays
   void ClearProperties();
 
+  /// 
+  /// Updates this node if it depends on other nodes 
+  /// when the node is deleted in the scene
+  virtual void UpdateReferences();
+
+  /// 
+  /// Update the stored reference to another node in the scene
+  virtual void UpdateReferenceID(const char *oldID, const char *newID);
 
  protected:
   //----------------------------------------------------------------

@@ -14,8 +14,9 @@ class qMRMLChartView;
 class qMRMLChartWidgetPrivate;
 
 // MRML includes
-class vtkMRMLScene;
 class vtkMRMLChartViewNode;
+class vtkMRMLColorLogic;
+class vtkMRMLScene;
 
 class QMRML_WIDGETS_EXPORT qMRMLChartWidget : public qMRMLWidget
 {
@@ -27,9 +28,6 @@ public:
   /// Constructors
   explicit qMRMLChartWidget(QWidget* parent = 0);
   virtual ~qMRMLChartWidget();
-
-  /// Get chart controller
-  qMRMLChartViewControllerWidget* ChartController()const;
 
   /// Get the chart node observed by view.
   vtkMRMLChartViewNode* mrmlChartViewNode()const;
@@ -49,6 +47,10 @@ public:
   /// \sa qMRMLChartControllerWidget::chartViewLabel()
   /// \sa chartViewLabel()
   void setViewLabel(const QString& newChartViewLabel);
+
+  /// Set the color logic that is used by the view.
+  void setColorLogic(vtkMRMLColorLogic* colorLogic);
+  vtkMRMLColorLogic* colorLogic()const;
 
 public slots:
   /// Set the current \a viewNode to observe
