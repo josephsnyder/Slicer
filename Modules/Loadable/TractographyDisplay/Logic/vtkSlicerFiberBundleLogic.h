@@ -24,6 +24,12 @@
 #include "vtkSlicerModuleLogic.h"
 #include "vtkSlicerTractographyDisplayModuleLogicExport.h"
 
+#include "vtkMRMLFiberBundleNode.h"
+#include "vtkMRMLFiberBundleStorageNode.h"
+#include "vtkMRMLFiberBundleLineDisplayNode.h"
+#include "vtkMRMLFiberBundleTubeDisplayNode.h"
+#include "vtkMRMLFiberBundleGlyphDisplayNode.h"
+
 // STD includes
 #include <cstdlib>
 
@@ -65,6 +71,10 @@ class VTK_SLICER_TRACTOGRAPHY_DISPLAY_MODULE_LOGIC_EXPORT vtkSlicerFiberBundleLo
   // Description:
   // Set the maximum number of fibers to show by default when a new fiber bundle node is set
   vtkSetMacro ( MaxNumberOfFibersToShowByDefault, vtkIdType );
+
+  // Description:
+  // Register MRML Node classes to Scene. Gets called automatically when the MRMLScene is attached to this logic class.
+  void RegisterNodes();
 
 protected:
   vtkSlicerFiberBundleLogic();
