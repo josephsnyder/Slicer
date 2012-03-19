@@ -43,6 +43,9 @@ public:
   qSlicerCoreIOManager(QObject* parent = 0);
   virtual ~qSlicerCoreIOManager();
 
+  QStringList LoadedFileNames;
+  QStringList returnLoadedFileNames()const ;
+
   /// Return the file type associated with a \a file
   Q_INVOKABLE qSlicerIO::IOFileType fileType(const QString& file)const;
   Q_INVOKABLE QList<qSlicerIO::IOFileType> fileTypes(const QString& file)const;

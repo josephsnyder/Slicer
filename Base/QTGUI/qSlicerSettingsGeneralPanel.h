@@ -47,10 +47,13 @@ public:
   /// Destructor
   virtual ~qSlicerSettingsGeneralPanel();
 
+
 protected slots:
   void onFontChanged(const QFont& font);
   void onShowToolTipsToggled(bool);
   void onShowToolButtonTextToggled(bool enable);
+  void onNumRecentFilesChanged(int);
+  void onClearRecentFilesClicked();
 
 protected:
   QScopedPointer<qSlicerSettingsGeneralPanelPrivate> d_ptr;

@@ -55,6 +55,7 @@ public:
 public slots:
   void setHomeModuleCurrent();
   void restoreToolbars();
+  bool loadRecent();
 
 protected slots:
   void onModuleLoaded(const QString& moduleName);

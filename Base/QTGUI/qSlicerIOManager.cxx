@@ -216,7 +216,6 @@ void qSlicerIOManager::dropEvent(QDropEvent *event)
   dataDialog->dropEvent(event);
   dataDialog->exec();
 }
-
 //-----------------------------------------------------------------------------
 void qSlicerIOManager::addHistory(const QString& path)
 {

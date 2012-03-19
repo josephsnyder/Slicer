@@ -49,6 +49,7 @@ public:
 
   QSettings*        ExtensionFileType;
   QList<qSlicerIO*> Readers;
+
 };
 
 //-----------------------------------------------------------------------------
@@ -215,6 +216,7 @@ bool qSlicerCoreIOManager::loadNodes(const qSlicerIO::IOFileType& fileType,
   Q_ASSERT(parameters.contains("fileName"));
   if (parameters["fileName"].type() == QVariant::StringList)
     {
+    qDebug() << "***************************" << parameters["fileName"].toStringList();
     bool res = true;
     QStringList fileNames = parameters["fileName"].toStringList();
     QStringList names = parameters["name"].toStringList();
@@ -255,9 +257,10 @@ bool qSlicerCoreIOManager::loadNodes(const qSlicerIO::IOFileType& fileType,
              << parameters["fileName"].toString();
     nodes << reader->loadedNodes();
     success = true;
+
     break;
     }
-
+    this->LoadedFileNames << parameters["fileName"].toString();
   if (loadedNodes)
     {
     foreach(const QString& node, nodes)
@@ -269,7 +272,11 @@ bool qSlicerCoreIOManager::loadNodes(const qSlicerIO::IOFileType& fileType,
 
   return success;
 }
-
+//-----------------------------------------------------------------------------
+QStringList qSlicerCoreIOManager::returnLoadedFileNames()const
+{ 
+  return this->LoadedFileNames;
+}
 //-----------------------------------------------------------------------------
 bool qSlicerCoreIOManager::loadNodes(const QList<qSlicerIO::IOProperties>& files,
                                      vtkCollection* loadedNodes)

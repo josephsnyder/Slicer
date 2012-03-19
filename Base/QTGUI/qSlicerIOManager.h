@@ -10,6 +10,7 @@
 #include <ctkVTKObject.h>
 
 // SlicerQ includes
+#include "qSlicerApplication.h"
 #include "qSlicerCoreIOManager.h"
 #include "qSlicerFileDialog.h"
 
@@ -69,6 +70,8 @@ public:
   /// Create a qSlicerDataDialog and forward the drop event to the dialog.
   void dropEvent(QDropEvent *event);
 
+  
+
 public slots:
 
   void openScreenshotDialog();
@@ -76,6 +79,7 @@ public slots:
   bool openLoadSceneDialog();
   bool openAddSceneDialog();
   inline bool openAddDataDialog();
+  inline bool openAddDataDialog(QString filename);
   inline bool openAddVolumeDialog();
   inline bool openAddVolumesDialog();
   inline bool openAddModelDialog();
@@ -105,6 +109,15 @@ bool qSlicerIOManager::openAddDataDialog()
 {
   qSlicerIO::IOProperties ioProperties;
   ioProperties["objectName"] = "AddDataDialog";
+  return this->openDialog(qSlicerIO::NoFile, qSlicerFileDialog::Read, ioProperties);
+}
+//------------------------------------------------------------------------------
+bool qSlicerIOManager::openAddDataDialog(QString filename)
+{
+
+  qSlicerIO::IOProperties ioProperties;
+  ioProperties["objectName"] = "AddDataDialog";
+  ioProperties["fileName"] = filename;
   return this->openDialog(qSlicerIO::NoFile, qSlicerFileDialog::Read, ioProperties);
 }
 
